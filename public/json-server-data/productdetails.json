@@ -1,0 +1,66 @@
+{
+  "login": [
+    {
+      "userName": "mani",
+      "password": "mani@123",
+      "email": "mani@gmail.com",
+      "id": 1
+    },
+    {
+      "useName": "wef",
+      "password": "dfvd4",
+      "email": "dw@gmail.com",
+      "id": 2
+    },
+    {
+      "useName": "ref",
+      "password": "cdw3",
+      "email": "wf@gmail.com",
+      "id": 3
+    }
+  ],
+  "allproducts": [
+    {
+      "name": "Laptop",
+      "price": "40000",
+      "category": "Electronics",
+      "image": "laptop.jpeg",
+      "id": 22
+    },
+    {
+      "name": "mobile",
+      "price": "20000",
+      "category": "Electronics",
+      "image": "mobile.jpeg",
+      "id": 23
+    },
+    {
+      "name": "Tv",
+      "price": "15000",
+      "category": "Electronics",
+      "image": "tv.jpeg",
+      "id": 24
+    },
+    {
+      "name": "Pant",
+      "price": "1000",
+      "category": "Clothing",
+      "image": "pant1.jpeg",
+      "id": 25
+    },
+    {
+      "name": "Shirt",
+      "price": "1000",
+      "category": "Clothing",
+      "image": "shirt.jpeg",
+      "id": 26
+    },
+    {
+      "name": "iphone",
+      "price": "50000",
+      "category": "electronics",
+      "image": "mobile.jpeg",
+      "id": 27
+    }
+  ]
+}
