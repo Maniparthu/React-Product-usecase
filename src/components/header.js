@@ -29,9 +29,9 @@ class Header extends React.Component {
         
         return (  
             <div style={navbarStyle}>
-            <a href="/dashboard">
+            <Link to='/dashboard'>
               
-            <img src = "images/logo.png"alt="logo" style={imageStyle}/></a>
+            <img src = "images/logo.png"alt="logo" style={imageStyle}/></Link>
             <ul style={headerStyle}>
                     <li style={menuitem}>
                          <Link to='/dashboard' style={{color:'white'}}>DashBoard</Link>

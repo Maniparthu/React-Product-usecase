@@ -1,18 +1,22 @@
 import React from 'react';
 import ProductDetails from './productdetails';
 import axios from "axios";
-import { Col, Row } from 'react-bootstrap';
+import {Row,Col} from "react-bootstrap"
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 class Products extends React.Component {
     constructor(props){
         super(props)
         this.state={
             products:[],
+            mycategory:[],
             deleteSuccess:false,
             myid:0,
             filteredProducts:[],
             searchValue:""  ,
-            name  :''       
+            categoryvalue:'',
+            name  :''   ,
+            category:''    
         }
     }
 
@@ -59,7 +63,7 @@ class Products extends React.Component {
     if(searchV===''){
         this.getAllProducts()
     }
-    this.setState({searchValue: searchV})
+    this.setState({searchValue: searchV})     
     console.log(searchV);
     let searchF = this.state.products.filter(f=>{
         return  f.name.toLowerCase().startsWith(searchV.trim().toLowerCase())
@@ -68,6 +72,21 @@ class Products extends React.Component {
          console.log(searchF)
     
     }
+
+    filter=(e)=>{
+        let searchE = e.target.value
+        if(searchE===''){
+            this.getAllProducts()
+        }
+        this.setState({categoryvalue: searchE})     
+        console.log(searchE);
+        let searchF = this.state.products.filter(f=>{
+            return  f.category.toLowerCase().startsWith(searchE.trim().toLowerCase())
+        })
+             this.setState({mycategory:searchF})
+             console.log(searchF)
+        
+        }
  
     getAllProducts=()=>{
         axios.get('http://localhost:3000/allproducts')
@@ -155,12 +174,16 @@ class Products extends React.Component {
                <div>
                     
                     <br></br>
-                    <input type="search" style={{marginLeft:'780px'}}placeholder="Search.." onChange={this.search} />
+                   
+          
                      <Col>
+                     <input type="search" style={{marginLeft:'780px'}}placeholder="Search Products" onChange={this.search} />
+                    <input type="search" style={{marginLeft:'780px'}}placeholder="Search Category" onChange={this.filter} />
                     <Row>
                         {this.renderAllProducts()}
                     </Row>
                     </Col>
+            
                  
                     {this.state.deleteSuccess &&
                     <div>

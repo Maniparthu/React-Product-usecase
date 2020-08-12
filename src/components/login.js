@@ -1,50 +1,64 @@
  import React from 'react';
- import {Link}from 'react-router-dom';
-  
+ import {Link}from 'react-router-dom';  
  import axios from "axios";
  class Login extends React.Component {
-     constructor(){
-         super()
+     constructor(props){
+         super(props)
          this.state={
+             login:[],
              userName:'',
              password:'',
-             
-                
-         }
+             wrongPassword: false,
+             wrongUser: false,
+             invalidUser:true,
+             invlaidPassword:true               
+         };
      }
 
-     login=()=>{
-        //   if(this.checkValidation()){
-           console.log('Add product via axios and post')
-           let loginRequestBody = {
-               "userName": this.state.userName,
-               "password": this.state.password
-           }  
-           axios.get(' http://localhost:3000/login', loginRequestBody)
-                   .then(response=>{
-                       console.log(response);
-                       this.props.history.push('/products')
-                   }, error=>{
-                       console.error(error);
-                   })
-       //}    
-   }
-     
+     login = () => {
+        axios.get('http://localhost:3000/login')
+            .then(response => {
+                this.setState({ login: response.data })
+                var loginuser = this.state.login.find(user => user.userName === this.state.userName)
+                if (loginuser === undefined) {
+                    this.setState({ wrongUser: true })
+                } else {
+                    if (loginuser.password === this.state.password) {
+                        this.setState({ userName: loginuser.userName })
+                        
+                        this.props.history.push('/dashboard')
+                    } else {
+                        this.setState({ wrongPassword: true })
+                    }
+                }
+            }, error => { console.error(error); })
+
+    }
 
      getUserName=(event)=>{
         console.log(event)
         console.log(event.target)
-        console.log(event.target.value)
-        
-        this.setState({userName: event.target.value})
-         
-     }
+        console.log(event.target.value)       
+        if (event.target.value.includes(this.state.userName)) {
+            this.setState({invalidUser : false})
+            this.setState({ userName: event.target.value })
+        }else{
+            this.setState({invalidUser : true})
+        }
+    }
+
      getPassword=(event)=>{
         console.log(event)
         console.log(event.target)
         console.log(event.target.value)
-        this.setState({category:event.target.value})
-     }
+        this.setState({ wrongPassword: false })
+        if(event.target.value === ''){
+            this.setState({invalidPassword : true})
+        }else{
+            this.setState({invalidPassword:false})
+        this.setState({ password: event.target.value })
+        }
+    }
     
      render() { 
         const textStyle = {
@@ -95,8 +109,10 @@
                  opacity: '0.8'  
         }
          return ( 
-            <div>
+            <div className="login">
             <form name="form" onChange={this.handleSubmit} style={Cointainer}>
+            {this.state.wrongUser && <h3 className='error'>Invalid UserName</h3>}
+                        {this.state.wrongPassword && <h3 className='error'>Invalid Password</h3>}
             <h3>Login</h3>  
                     <div>
                         <label> UserName</label> &nbsp;
@@ -110,7 +126,8 @@
                     <label> Password</label> &nbsp;
                         <input type="password" style={textStyle} id="password" required placeholder="Product Price *" onChange={this.getPassword}/>
                     </div><br/>
-                    <input type="submit" style={ButtonStyle} value="Login" onClick={this.login}    />
+                    {this.state.invalidPassword && <span className='error'>Password is required</span>}
+                    <input type="submit" style={ButtonStyle} value="Login" onClick={this.login}  disabled={this.state.invalidUser || this.state.invalidPassword}  />
                     
                     <Link to="/signup">
                             <button type="button" style={CBButtonStyle} >

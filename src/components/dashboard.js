@@ -1,5 +1,6 @@
 import React from 'react';
 import {Pie,  } from 'react-chartjs-2';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const state = {
   labels: ['Laptop', 'Mobile', 'Dongal',

@@ -17,6 +17,24 @@
       "password": "cdw3",
       "email": "wf@gmail.com",
       "id": 3
+    },
+    {
+      "userName": "mani@123",
+      "password": "mani@123",
+      "email": "mani@123",
+      "id": 4
+    },
+    {
+      "userName": "aaa",
+      "password": "aaa",
+      "email": "aaa",
+      "id": 5
+    },
+    {
+      "userName": "abc",
+      "password": "abc",
+      "email": "abc",
+      "id": 6
     }
   ],
   "allproducts": [

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 class ProductDetails extends React.Component {
     constructor(props){
         super(props)

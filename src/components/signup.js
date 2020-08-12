@@ -1,10 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 class Signup extends React.Component {
     constructor(props){
         super(props)
         this.state ={
+            login:[],
             userName:'',
             password:'',
             email:''
@@ -34,7 +36,7 @@ class Signup extends React.Component {
         //   if(this.checkValidation()){
            console.log('Registerd')
            let productRequestBody = {
-               "useName": this.state.userName,
+               "userName": this.state.userName,
                "password": this.state.password,
                "email": this.state.email
               

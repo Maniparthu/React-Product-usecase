@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const validateForm = errors => {
     let valid = true;
@@ -139,8 +140,7 @@ class EditProduct extends React.Component {
                  cursor: 'pointer',
                  borderRadius: '15px',  
                  boxShadow: '2px 3px',
-                
-                   
+                                   
         }
         let CBButtonStyle={
               
