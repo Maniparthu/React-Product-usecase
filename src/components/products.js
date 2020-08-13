@@ -125,6 +125,7 @@ class Products extends React.Component {
                         price={product.price}
                         category={product.category}
                         profile={product.image}
+                        stock={product.stock}
                         deleteId={this.deleteProductWithId}
                         editId={this.editProductWithId}
                     >
@@ -144,6 +145,7 @@ class Products extends React.Component {
                         price={product.price}
                         category={product.category}
                         profile={product.image}
+                        stock={product.stock}
                         deleteId={this.deleteProductWithId}
                         editId={this.editProductWithId}
                     >
@@ -174,17 +176,15 @@ class Products extends React.Component {
                <div>
                     
                     <br></br>
-                   
-          
-                     <Col>
+
+                    <Col>
                      <input type="search" style={{marginLeft:'780px'}}placeholder="Search Products" onChange={this.search} />
-                    <input type="search" style={{marginLeft:'780px'}}placeholder="Search Category" onChange={this.filter} />
+                     <input type="search" style={{marginLeft:'780px'}}placeholder="Search Category" onChange={this.filter} />
                     <Row>
                         {this.renderAllProducts()}
                     </Row>
                     </Col>
             
-                 
                     {this.state.deleteSuccess &&
                     <div>
                           <h3>Product deleted success!!!!</h3>  

@@ -3,26 +3,28 @@ import {Pie,  } from 'react-chartjs-2';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const state = {
-  labels: ['Laptop', 'Mobile', 'Dongal',
-           'Book', 'Pen'],
+  labels: ['Laptop', 'Mobile', 'tab',
+           'shirt', 'Pant','Tv'],
   datasets: [
     {
-      label: 'Rainfall',
+      label: 'Products',
       backgroundColor: [
         '#B21F00',
         '#C9DE00',
         '#2FDE00',
         '#00A6B4',
-        '#6800B4'
+        '#6800B4',
+        'lightpink'
       ],
       hoverBackgroundColor: [
       '#501800',
       '#4B5000',
       '#175000',
       '#003350',
-      '#35014F'
+      '#35014F',
+      'darkpink'
       ],
-      data: [65, 59, 80, 81, 56]
+      data: [3, 5, 2, 3, 1,2]
     }
   ]
 }

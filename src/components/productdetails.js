@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 class ProductDetails extends React.Component {
     constructor(props){
         super(props)
@@ -33,6 +32,7 @@ class ProductDetails extends React.Component {
                     <Card.Text>
                         Price : {this.props.price}<br></br>
                              Category : {this.props.category}<br></br>
+                             stock:{this.props.stock}<br></br>
                     </Card.Text>
                     <Button variant="primary" onClick={this.editProductWithId}>Edit</Button> &nbsp;
                        <Button   variant="danger" onClick={this.deleteCurrentProduct}>Delete</Button>

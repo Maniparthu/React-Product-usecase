@@ -15,6 +15,7 @@ class AddProduct extends React.Component {
             price:0,
             category:'',
             image:'',
+            stock:0,
             buttonStatus: false,
             errors: {
             nameError:'',
@@ -69,6 +70,13 @@ class AddProduct extends React.Component {
         console.log(event.target.value.substr(12));
         this.setState({image: event.target.value.substr(12)})
     }
+    getStock=(event)=>{
+        console.log(event);
+        console.log(event.target);
+        console.log(event.target.value);
+        console.log(event.target.value.substr(12));
+        this.setState({stock: event.target.value})
+    }
    
     addProduct=()=>{
      //   if(this.checkValidation()){
@@ -77,7 +85,8 @@ class AddProduct extends React.Component {
             "name": this.state.name,
             "price": this.state.price,
             "category": this.state.category,
-            "image":this.state.image
+            "image":this.state.image,
+            "stock":this.state.stock
         }
         axios.post(' http://localhost:3000/allproducts', productRequestBody)
                 .then(response=>{
@@ -171,7 +180,10 @@ render() {
                               <option value="clothing">Clothing</option>
                               <option value="stationary">Stationary</option>
                         </select>
-                           
+                        <br></br>
+                        <label>STOCK</label> &nbsp;
+                            <input type="number" style={textStyle} id="productprice" required placeholder="Product Stock *" onChange={this.getStock} noValidate/>
+                            
                                <br></br>
                             {this.state.errors.categoryError.length > 0 && (
                                 <span className="error">{this.state.errors.categoryError}</span>

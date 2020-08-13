@@ -1,64 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {Navbar,Nav} from "react-bootstrap"
 class Header extends React.Component {
     state = { 
         
      }
     render() {
-        const headerStyle={
-           backgroundColor:'black',
-          color:'white',
-            padding:'5px'
-         
-        } 
+       
         const imageStyle={
             verticalalign: 'middle',
             width: '60px',
             height: '60px',
             borderradius: '60%'
         }
-       
-        const menuitem = {
-            display: 'inline',
-            padding: '20px'
-        }
-        const navbarStyle = {
-            backgroundColor: 'lightpink',
-            padding:'2px'
-        }
         
         return (  
-            <div style={navbarStyle}>
-            <Link to='/dashboard'>
-              
-            <img src = "images/logo.png"alt="logo" style={imageStyle}/></Link>
-            <ul style={headerStyle}>
-                    <li style={menuitem}>
-                         <Link to='/dashboard' style={{color:'white'}}>DashBoard</Link>
-                    </li>
-                    <li style={menuitem}>
-                         <Link to='/products' style={{ color:'white'}}>Products</Link>
-                    </li>
-                    <li style={menuitem}>
-                        <Link to='/add' style={{ color:'white'}}>Add Product</Link>
-                    </li>
-                    
-                    <li style={menuitem}>
-                        <Link to='/signout' style={{ color:'white'}}>signout</Link>
-                    </li>
-                    <li style={menuitem}>
-                        <Link to='/login' style={{ color:'white'}}>Login</Link>
-                    </li>
-                    <li style={menuitem}>
-                        <Link to='/Signup' style={{ color:'white'}}>Signup</Link>
-                    </li>
-            </ul>
-            
-            
-                
-        
-       
-        
+          <div>  
+            <Navbar bg="dark" variant="dark">
+            <Link to='/login'>  <img src = "images/logo.png"alt="logo" style={imageStyle}/></Link>
+    <Navbar.Brand href="#home">PRODUCT INVENTRY</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href='#dashboard'>Dashboard</Nav.Link>
+      <Nav.Link href="#products">Products</Nav.Link>
+      <Nav.Link href="#add">Add product</Nav.Link>
+      <Nav.Link href="#signout">Signout</Nav.Link>
+      <Nav.Link href="#login">Login</Nav.Link>
+      <Nav.Link href="#Signup">Signout</Nav.Link>
+    </Nav>
+  </Navbar>        
             </div>
         );
     }

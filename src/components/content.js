@@ -14,7 +14,7 @@ class Content extends React.Component {
                 <Switch>
                    
                 
-                  
+                    
                     <Route path='/add' component={AddProduct}></Route>
                     <Route path='/products' component={Products}></Route>
                     <Route path='/editproduct' component={EditProduct}></Route>

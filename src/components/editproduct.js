@@ -19,6 +19,7 @@ class EditProduct extends React.Component {
         this.state={
             name:'',
             price:0,
+            stock:0,
             category:'',
             image:'',
             id: 0,
@@ -43,6 +44,7 @@ class EditProduct extends React.Component {
                         price:response.data.price,
                         category:response.data.category,
                         image:response.data.image,
+                        stock:response.data.stock,
                         id: response.data.id
                     })
                 }, error=>{
@@ -94,13 +96,23 @@ class EditProduct extends React.Component {
         this.setState({image: event.target.value.substr(12)})
     }
 
+    getStock=(event)=>{
+        console.log(event);
+        console.log(event.target);
+        console.log(event.target.value);
+        console.log(event.target.value.substr(12));
+        
+        this.setState({stock: event.target.value})
+    }
+
     editFriend=()=>{
         console.log('Edit friend via axios and put')
         let productRequestBody = {
             "name": this.state.name,
             "price":this.state.price,
             "category":this.state.category,
-            "image":this.state.image
+            "image":this.state.image,
+            "stock":this.state.stock
             
 
         }
@@ -202,6 +214,10 @@ class EditProduct extends React.Component {
                             {this.state.errors.categoryError.length > 0 && (
                                 <span className="error">{this.state.errors.categoryError}</span>
                               )}
+                               <br></br>
+                               <label> STOCK</label> &nbsp;
+                            <input type="text" style={textStyle} id="productstock" required value={this.state.stock}  onChange={this.getStock} />
+                            <br></br>
                         </div><br/>
                         <label>Image</label> &nbsp;
 

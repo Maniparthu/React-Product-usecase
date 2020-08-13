@@ -49,36 +49,31 @@
       "name": "mobile",
       "price": "20000",
       "category": "Electronics",
-      "image": "mobile.jpeg",
+      "image": "iphone.jpeg",
       "id": 23
     },
     {
-      "name": "Tv",
+      "name": "Tv sony",
       "price": "15000",
       "category": "Electronics",
-      "image": "tv.jpeg",
+      "image": "tvo1.jpeg",
       "id": 24
     },
     {
-      "name": "Pant",
-      "price": "1000",
-      "category": "Clothing",
-      "image": "pant1.jpeg",
-      "id": 25
-    },
-    {
-      "name": "Shirt",
-      "price": "1000",
-      "category": "Clothing",
-      "image": "shirt.jpeg",
-      "id": 26
-    },
-    {
-      "name": "iphone",
-      "price": "50000",
+      "name": "TV",
+      "price": "20000",
       "category": "electronics",
-      "image": "mobile.jpeg",
-      "id": 27
+      "image": "tv2.jpeg",
+      "stock": "1",
+      "id": 34
+    },
+    {
+      "name": "Laptop",
+      "price": "40000",
+      "category": "electronics",
+      "image": "laptop2.jpeg",
+      "stock": "1",
+      "id": 35
     }
   ]
 }
