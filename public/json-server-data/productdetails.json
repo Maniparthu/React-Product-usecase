@@ -35,6 +35,12 @@
       "password": "abc",
       "email": "abc",
       "id": 6
+    },
+    {
+      "userName": "mani",
+      "password": "aa",
+      "email": "wf@gmail.com",
+      "id": 7
     }
   ],
   "allproducts": [

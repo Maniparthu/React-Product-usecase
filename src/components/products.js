@@ -177,9 +177,8 @@ class Products extends React.Component {
                     
                     <br></br>
 
-                    <Col>
+                    <Col xl={10}>
                      <input type="search" style={{marginLeft:'780px'}}placeholder="Search Products" onChange={this.search} />
-                     <input type="search" style={{marginLeft:'780px'}}placeholder="Search Category" onChange={this.filter} />
                     <Row>
                         {this.renderAllProducts()}
                     </Row>

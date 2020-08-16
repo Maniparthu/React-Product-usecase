@@ -1,6 +1,7 @@
  import React from 'react';
  import {Link}from 'react-router-dom';  
  import axios from "axios";
+ import 'bootstrap/dist/css/bootstrap.min.css';
  class Login extends React.Component {
      constructor(props){
          super(props)
@@ -100,19 +101,25 @@
                
     }
         let Cointainer={
-              
-                marginLeft:'200px',
+                
+                marginLeft:'220px',
                 marginRight:'200px',
                 marginTop: '0px',
                  padding: '25px',   
                  backgroundColor: 'lightblue',
-                 opacity: '0.8'  
+                 opacity: '0.8'  ,
+                 display: 'flex',
+                 flexDirection: 'column'
         }
+       
+        
+                
          return ( 
-            <div className="login">
+             <div  expand="lg">
+            <div  className="login">
             <form name="form" onChange={this.handleSubmit} style={Cointainer}>
-            {this.state.wrongUser && <h3 className='error'>Invalid UserName</h3>}
-                        {this.state.wrongPassword && <h3 className='error'>Invalid Password</h3>}
+            {this.state.wrongUser && <h3 style={{color:'red'}} className='error'>Invalid UserName</h3>}
+                        {this.state.wrongPassword && <h3 style={{color:'red'}} className='error'>Invalid Password</h3>}
             <h3>Login</h3>  
                     <div>
                         <label> UserName</label> &nbsp;
@@ -136,6 +143,9 @@
                         </Link>
                  </form>
     </div>
+    </div>
+  
+    
           );
      }
  }

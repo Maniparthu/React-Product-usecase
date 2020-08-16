@@ -158,7 +158,7 @@ render() {
                        
                        <br></br>
                             {this.state.errors.nameError.length > 0 && (
-                                <span className="error">{this.state.errors.nameError}</span>
+                                <span className="error"><p style={{color:'red'}}>{this.state.errors.nameError}</p></span>
                               )}     
                               
                         </div><br/>
@@ -168,7 +168,7 @@ render() {
                             <input type="number" style={textStyle} id="productprice" required placeholder="Product Price *" onChange={this.getPrice} noValidate/>
                             <br></br>
                             {this.state.errors.priceError.length > 0 && (
-                                <span className="error">{this.state.errors.priceError}</span>
+                                <span className="error"><p style={{color:'red'}}>{this.state.errors.priceError}</p></span>
                               )}  
                         </div><br/>
 
@@ -186,7 +186,7 @@ render() {
                             
                                <br></br>
                             {this.state.errors.categoryError.length > 0 && (
-                                <span className="error">{this.state.errors.categoryError}</span>
+                                <span className="error"><p style={{color:'red'}}>{this.state.errors.categoryError}</p></span>
                               )}  
                         </div><br/>
                        

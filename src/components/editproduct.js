@@ -191,14 +191,14 @@ class EditProduct extends React.Component {
                             <input type="text" style={textStyle} id="productname" required value={this.state.name}  onChange={this.getName} />
                             <br></br>
                             {this.state.errors.nameError.length > 0 && (
-                                <span className="error">{this.state.errors.nameError}</span>
+                                <span className="error"><p style={{color:'red'}}>{this.state.errors.nameError}</p></span>
                               )}     
                         </div><br/>
                         <div>
                         <label> Price</label> &nbsp;
                             <input type="number" style={textStyle} id="productprice" required value={this.state.price}  onChange={this.getPrice}/>
                             {this.state.errors.priceError.length > 0 && (
-                                <span className="error">{this.state.errors.priceError}</span>
+                                <span className="error"><p style={{color:'red'}}>{this.state.errors.priceError}</p></span>
                               )}  
                         </div><br/>
                         <div>
@@ -212,7 +212,7 @@ class EditProduct extends React.Component {
                            
                                      <br></br>
                             {this.state.errors.categoryError.length > 0 && (
-                                <span className="error">{this.state.errors.categoryError}</span>
+                                <span className="error"><p style={{color:'red'}}>{this.state.errors.categoryError}</p></span>
                               )}
                                <br></br>
                                <label> STOCK</label> &nbsp;
@@ -222,7 +222,7 @@ class EditProduct extends React.Component {
                         <label>Image</label> &nbsp;
 
                         <input type="file" style={textStyle}   onChange={this.getImage} multiple accept='image/*'></input>
-                        <div >
+                        <div >{this.state.image}
                         </div>
                             <input type="submit" style={ButtonStyle} value="Edit" onClick={this.editFriend} />
                           
