@@ -1,7 +1,8 @@
 import React from 'react';
 import ProductDetails from './productdetails';
 import axios from "axios";
-import {Row,Col} from "react-bootstrap"
+import {Row,Col,PopUp } from "react-bootstrap"
+import Carousel from 'react-bootstrap/Carousel'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 class Products extends React.Component {
@@ -67,6 +68,7 @@ class Products extends React.Component {
     console.log(searchV);
     let searchF = this.state.products.filter(f=>{
         return  f.name.toLowerCase().startsWith(searchV.trim().toLowerCase())
+       
     })
          this.setState({filteredProducts:searchF})
          console.log(searchF)
@@ -115,6 +117,14 @@ class Products extends React.Component {
 
     renderAllProducts=()=>{
         if(this.state.searchValue!==""){
+
+             if (this.state.filteredProducts.length === 0) {
+                return (
+                    <h1  style={{color:'red'}}>
+                    couldnt match your searched products
+                  </h1>
+                   )
+            }else{
             return this.state.filteredProducts.map(product=>{
             return(
               
@@ -133,7 +143,7 @@ class Products extends React.Component {
                     </ProductDetails>
                 
             )
-        })
+        })}
     }else{
         return this.state.products.map(product=>{
             return(
@@ -169,17 +179,66 @@ class Products extends React.Component {
                                     state: {myid: id}
                                 })
     }
-   
+     carousel= {
+
+        height:'360px'
+        
+        }
+        
+          item   ={
+        
+        height:'360px',
+        
+        objectFit: 'contain'
+        
+        }
     render() { 
         return ( 
     
                <div>
-                    
+                    <Carousel  >
+  <Carousel.Item>
+    <img
+      style={{width:'1400px',height:'300px'}}
+      src="./images/welcome.jpeg"
+      alt="First slide"
+      
+    />
+    <Carousel.Caption>
+      <h2 style={{color:'black'}}>Welcome to the great sale</h2>
+       
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item >  
+    <img
+      style={{width:'1400px',height:'300px'}}
+      src="./images/sale1.jpeg"
+      alt="Third slide"
+    />
+
+    <Carousel.Caption>
+    <h2 style={{color:'black'}}>Welcome to the great sale</h2>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      style={{width:'1400px',height:'300px'}}
+      src="./images/sale.jpeg"
+      alt="Third slide"
+    />
+
+    <Carousel.Caption>
+    <h2 style={{color:'white'}}>Welcome to the great sale</h2>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
                     <br></br>
 
                     <Col xl={10}>
-                     <input type="search" style={{marginLeft:'780px'}}placeholder="Search Products" onChange={this.search} />
-                    <Row>
+                        <Row sm={5}>
+                     <input type="search" style={{marginLeft:'100px'}}placeholder="Search Products" onChange={this.search} />
+                    </Row>
+                    <Row  sm={7}> 
                         {this.renderAllProducts()}
                     </Row>
                     </Col>
