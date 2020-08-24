@@ -88,7 +88,7 @@ class AddProduct extends React.Component {
             "image":this.state.image,
             "stock":this.state.stock
         }
-        axios.post(' http://localhost:3000/allproducts', productRequestBody)
+        axios.post(' http://localhost:3100/allproducts', productRequestBody)
                 .then(response=>{
                     console.log(response);
                     this.props.history.push('/products')
@@ -192,7 +192,7 @@ render() {
                        
                         <label>IMAGE</label> &nbsp;
 
-                        <input type="file" style={textStyle} onChange={this.getImage} multiple accept='image/*'></input>
+                        <input type="file" style={textStyle} onChange={this.getImage} multiple accept='images/*'></input>
                         <div >
                             <input type="submit" style={ButtonStyle} value="Add" onClick={this.addProduct}  disabled={this.state.buttonStatus} />
                           

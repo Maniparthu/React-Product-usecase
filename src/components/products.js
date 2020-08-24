@@ -91,7 +91,7 @@ class Products extends React.Component {
         }
  
     getAllProducts=()=>{
-        axios.get('http://localhost:3000/allproducts')
+        axios.get('http://localhost:3100/allproducts')
                 .then(response=>{
                     console.log(response);
                     console.log(response.data)
@@ -104,7 +104,7 @@ class Products extends React.Component {
 
     deleteProductWithId=(id)=>{
         console.log('delete product for received id: ' + id);
-        axios.delete('http://localhost:3000/allproducts'+ '/' + id)
+        axios.delete('http://localhost:3100/allproducts'+ '/' + id)
                 .then(response=>{
                      console.log(response)
                      this.setState({deleteSuccess: true})
@@ -127,7 +127,7 @@ class Products extends React.Component {
             }else{
             return this.state.filteredProducts.map(product=>{
             return(
-              
+                
                     <ProductDetails
                         key={product.id}
                         id={product.id}
@@ -196,7 +196,7 @@ class Products extends React.Component {
         return ( 
     
                <div>
-                    <Carousel  >
+    <Carousel  >
   <Carousel.Item>
     <img
       style={{width:'1400px',height:'300px'}}

@@ -36,7 +36,7 @@ class EditProduct extends React.Component {
 
     componentWillMount(){
         if(this.props.location.state !== undefined){
-            axios.get('http://localhost:3000/allproducts/'+this.props.location.state.myid)
+            axios.get('http://localhost:3100/allproducts/'+this.props.location.state.myid)
                 .then(response=>{
                     console.log(response);
                     this.setState({
@@ -116,7 +116,7 @@ class EditProduct extends React.Component {
             
 
         }
-        axios.put('http://localhost:3000/allproducts/'+this.state.id, productRequestBody)
+        axios.put('http://localhost:3100/allproducts/'+this.state.id, productRequestBody)
                 .then(response=>{
                     console.log(response);
                     this.props.history.push('/products')
