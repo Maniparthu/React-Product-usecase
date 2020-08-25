@@ -148,8 +148,8 @@ render() {
                  opacity: '0.8'  
         }
         return ( 
-            <div>
-            <form name="form" onSubmit={this.add} onChange={this.handleSubmit} style={Cointainer}>
+            <div id='add'>
+            <form className="form" onSubmit={this.add} onChange={this.handleSubmit} style={Cointainer}>
                 <h3>Add Product</h3>  
                         <div>
                             <label> NAME</label> &nbsp;
@@ -194,15 +194,11 @@ render() {
 
                         <input type="file" style={textStyle} onChange={this.getImage} multiple accept='images/*'></input>
                         <div >
-                            <input type="submit" style={ButtonStyle} value="Add" onClick={this.addProduct}  disabled={this.state.buttonStatus} />
+                            <button type="submit" data-testid="addbutton" style={ButtonStyle}  onClick={this.addProduct}  disabled={this.state.buttonStatus} >Add</button>
                           
                         
-                        <Link to="/products">
-                            <button type="button" style={CBButtonStyle}>
-                                Cancel
-                            </button>
-                        </Link>
-                        
+                      
+                      
                         </div>
                         
             </form>
